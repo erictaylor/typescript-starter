@@ -8,8 +8,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "include": ["src/**/*"],
     "outDir": "dist",
     "declaration": true
-  }
+  },
+  "include": ["src/**/*"]
 }
