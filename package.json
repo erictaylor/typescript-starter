@@ -1,0 +1,23 @@
+{
+  "name": "@erictaylor/typescript-starter",
+  "version": "0.1.0",
+  "description": "A starter template for a TypeScript project.",
+  "main": "dist/typescript-starter.cjs.js",
+  "module": "dist/typescript-starter.esm.js",
+  "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erictaylor/typescript-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/erictaylor/typescript-starter/issues"
+  },
+  "author": "Eric Taylor <eric@daxos.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@erictaylor/prettier-config": "^1.0.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3"
+  },
+  "prettier": "@erictaylor/prettier-config"
+}
