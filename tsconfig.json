@@ -1,15 +1,19 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "lib": ["es2020"],
-    "target": "es2020", // Node >= 14 || Babel
-    "module": "commonjs",
+    "lib": ["esnext"],
+    // Target Node 12 or greater.
+    "target": "es2019",
+    "module": "esnext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
-    "declaration": true
+    "declaration": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true
   },
   "include": ["src/**/*"]
 }
