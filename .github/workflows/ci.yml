@@ -1,0 +1,46 @@
+# 🛎 Code check out from the repo
+# 📦 Installing and caching dependencies
+# 🧹 Linting
+# 🧩 Type Checking `tsc --noEmit`
+# 💅 Prettier formatting.
+# 🚦 Sanity checks
+# 🏗 Building
+# 🚛 Moving or preparing app
+# 🗑 Delting file or folder
+# 🧪 Running tests
+# 💨 Smoke tests
+# 📊 Demo
+# 📈 Code Coverage
+# 🚀 Releasing
+name: CI
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎 Checkout
+        uses: actions/checkout@v2
+
+      - name: ⬢ Use Node.js
+        uses: actions/setup-node@v1
+
+      - name: 🧶 Get Yarn Cache
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: 📦 Install Dependencies
+        run: yarn --frozen-lockfile
+
+      - name: 🧹 Linting
+        run: yarn lint
+
+      - name: 🧪 Running tests
+        run: yarn test
